@@ -10,6 +10,7 @@ namespace OctopusTesting.BusinessTests
         BusinessManager manager = new BusinessManager();
 
         [TestMethod]
+        [ExpectedException(typeof(NullReferenceException))]
         public void ThrowNullExceptionTest()
         {
             manager.DoBusinessStuff(new NullReferenceException("Throw null exception test"));
@@ -31,7 +32,7 @@ namespace OctopusTesting.BusinessTests
         [TestMethod]
         public void BusinessIsNOTViableTrue()
         {
-            Assert.IsTrue(manager.CheckIfBusinessIsViable(false));
+            Assert.IsTrue(manager.CheckIfBusinessIsViable(true));
         }
 
         [TestMethod]
